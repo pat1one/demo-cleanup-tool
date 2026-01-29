@@ -1,6 +1,9 @@
-﻿package main
+package main
+
+var version = "dev"
 
 import (
+var version = "dev"
 "flag"
 "fmt"
 "log"
@@ -19,7 +22,18 @@ func main() {
 demoPath := flag.String("path", "./tmp_demos", "Path to demo files directory")
 daysOld := flag.Int("days", 7, "Delete files older than N days")
 dryRun := flag.Bool("dry-run", false, "Show what would be deleted without deleting")
+showVersion := flag.Bool("version", false, "Show version")
+	showVersion := flag.Bool("version", false, "Show version")
 flag.Parse()
+if *showVersion {
+fmt.Println(version)
+return
+}
+
+	if *showVersion {
+		fmt.Println(version)
+		return
+	}
 
 fmt.Printf("Scanning: %s\n", *demoPath)
 fmt.Printf("Deleting files older than %d days\n", *daysOld)
