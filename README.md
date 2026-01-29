@@ -1,1 +1,1 @@
-Test cleanup Faceit-ai-bot tool for old .dem files
+Cleanup Faceit-ai-bot tool for old .dem files
