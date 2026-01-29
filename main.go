@@ -1,9 +1,29 @@
+﻿# Demo Cleanup Tool
+
+CLI utility to clean up old CS2 demo files.
+
+## Usage
+
+\\\ash
+go run main.go --path ./tmp_demos --days 7 --dry-run
+go run main.go --path ./tmp_demos --days 7
+\\\
+
+## Build
+
+\\\ash
+go build -o demo-cleanup
+\\\
+
+## Cross-compile for Linux ARM64
+
+\\\ash
+GOOS=linux GOARCH=arm64 go build -o demo-cleanup-linux-arm64
+\\\
+"@ | Out-File -Encoding utf8 README.md; @"
 package main
 
-var version = "dev"
-
 import (
-var version = "dev"
 "flag"
 "fmt"
 "log"
@@ -11,6 +31,8 @@ var version = "dev"
 "path/filepath"
 "time"
 )
+
+var version = "dev"
 
 type CleanupStats struct {
 TotalFiles   int
@@ -23,17 +45,12 @@ demoPath := flag.String("path", "./tmp_demos", "Path to demo files directory")
 daysOld := flag.Int("days", 7, "Delete files older than N days")
 dryRun := flag.Bool("dry-run", false, "Show what would be deleted without deleting")
 showVersion := flag.Bool("version", false, "Show version")
-	showVersion := flag.Bool("version", false, "Show version")
 flag.Parse()
+
 if *showVersion {
 fmt.Println(version)
 return
 }
-
-	if *showVersion {
-		fmt.Println(version)
-		return
-	}
 
 fmt.Printf("Scanning: %s\n", *demoPath)
 fmt.Printf("Deleting files older than %d days\n", *daysOld)
