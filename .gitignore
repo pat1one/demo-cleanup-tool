@@ -1,0 +1,26 @@
+﻿# Demo Cleanup Tool
+
+CLI utility to clean up old CS2 demo files.
+
+## Usage
+
+\\\ash
+go run main.go --path ./tmp_demos --days 7 --dry-run
+go run main.go --path ./tmp_demos --days 7
+\\\
+
+## Build
+
+\\\ash
+go build -o demo-cleanup
+\\\
+
+## Cross-compile for Linux ARM64
+
+\\\ash
+GOOS=linux GOARCH=arm64 go build -o demo-cleanup-linux-arm64
+\\\
+"@ | Out-File -Encoding utf8 README.md; @"
+/demo-cleanup
+/demo-cleanup-*
+*.exe
